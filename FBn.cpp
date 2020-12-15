@@ -3,6 +3,8 @@
 #include <vector>
 #include <unistd.h>
 #include <string>
+#include <thread>
+#include <ctime>
 using namespace std;
 
 
@@ -37,7 +39,7 @@ void Task::make(int time_to_make) {
 		}
 		else {
 			cout << name << "		" << time << "..." << endl;
-			//sleep(1);
+			sleep(1);
 			time--;
 		}
 	}
@@ -54,7 +56,7 @@ void Task::make() {
 		}
 		else {
 			cout << name << "		" << time << "..." << endl;
-			//sleep(1);
+			sleep(1);
 			time--;
 		}
 	}
@@ -169,32 +171,22 @@ void TaskSheduler::work(){
 
 
 
-void test1(TaskSheduler &ts){
-
+void th_inp(int time_limit, int count, TaskSheduler &ts){
+	srand(time(NULL));
+	int tmp = 0;
+	for (int i = 0; i < count; ++i)
+	{
+		tmp = rand() % time_limit + 1;
+		Task t(tmp, "new Task");
+		ts.addTask(t);
+		sleep(5);
+	}
 }
-
-
 
 int main() {
 	TaskSheduler ts(3);
-	Task t1(1, "task1");
-	ts.addTask(t1);
-	Task t2(2, "task2");
-	ts.addTask(t2);
-	Task t3(5, "task3");
-	ts.addTask(t3);
-	Task t4(8, "task4");
-	ts.addTask(t4);
-	Task t5(23, "task5");
-	ts.addTask(t5);
-	Task t6(5, "task6");
-	ts.addTask(t6);
-	Task t7(53, "task7");
-	ts.addTask(t7);
-	Task t8(34, "task8");
-	ts.addTask(t8);
-	Task t9(11, "task9");
-	ts.addTask(t9);
+	thread inp_thread(&th_inp, 7, 4, ts);
 	ts.work();
+
 	return 0;
 }
