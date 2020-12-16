@@ -23,9 +23,11 @@ To get count of queues.
 taskSheduler::setStop()
 To stop accepting tasks.
 
-![Result](https://github.com/Andrey2102/FBnTaskSheduling/blob/main/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D0%B8.PNG)
+# Plots
 
+![Plot1](https://github.com/Andrey2102/FBnTaskSheduling/blob/main/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D0%B8.PNG)
 
+![Plot2](https://github.com/Andrey2102/FBnTaskSheduling/blob/main/Plot2.PNG)
 
 
 
